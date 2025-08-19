@@ -1,51 +1,69 @@
 
-TRUNCATE TABLE bronze.crm_cust_info
+/*
+===========================================================
+ Note:
+ This script loads data into bronze schema tables from CSV
+ files using PostgreSQL's COPY command. It truncates tables
+ before loading and provides row counts for verification.
+ Update file paths as needed before running.
+===========================================================
+*/
 
+
+
+-- ============================
+-- CRM TABLES
+-- ============================
+
+-- crm_cust_info
+TRUNCATE TABLE bronze.crm_cust_info;
 COPY bronze.crm_cust_info
-FROM 'C:\Program Files\PostgreSQL\17\datasets\source_crm\cust_info.csv'
+FROM 'C:/Program Files/PostgreSQL/17/datasets/source_crm/cust_info.csv'
 DELIMITER ','
 CSV HEADER;
 
-
-TRUNCATE TABLE bronze.crm_prd_info
-
+-- crm_prd_info
+TRUNCATE TABLE bronze.crm_prd_info;
 COPY bronze.crm_prd_info
-FROM 'C:\Program Files\PostgreSQL\17\datasets\source_crm\prd_info.csv'
+FROM 'C:/Program Files/PostgreSQL/17/datasets/source_crm/prd_info.csv'
 DELIMITER ','
 CSV HEADER;
 
-TRUNCATE TABLE bronze.crm_sales_details
-
+-- crm_sales_details
+TRUNCATE TABLE bronze.crm_sales_details;
 COPY bronze.crm_sales_details
-FROM 'C:\Program Files\PostgreSQL\17\datasets\source_crm\sales_details.csv'
-DELIMITER ','   
+FROM 'C:/Program Files/PostgreSQL/17/datasets/source_crm/sales_details.csv'
+DELIMITER ','
 CSV HEADER;
 
+-- ============================
+-- ERP TABLES
+-- ============================
 
-
-TRUNCATE TABLE bronze.erp_cust_az12
-
+-- erp_cust_az12
+TRUNCATE TABLE bronze.erp_cust_az12;
 COPY bronze.erp_cust_az12
-FROM 'C:\Program Files\PostgreSQL\17\datasets\source_erp\CUST_AZ12.csv'
+FROM 'C:/Program Files/PostgreSQL/17/datasets/source_erp/CUST_AZ12.csv'
 DELIMITER ','
 CSV HEADER;
 
-
-TRUNCATE TABLE bronze.erp_loc_a101
-
+-- erp_loc_a101
+TRUNCATE TABLE bronze.erp_loc_a101;
 COPY bronze.erp_loc_a101
-FROM 'C:\Program Files\PostgreSQL\17\datasets\source_erp\LOC_A101.csv'
+FROM 'C:/Program Files/PostgreSQL/17/datasets/source_erp/LOC_A101.csv'
 DELIMITER ','
 CSV HEADER;
 
-
-
-TRUNCATE TABLE bronze.erp_px_cat_g1v2
-
+-- erp_px_cat_g1v2
+TRUNCATE TABLE bronze.erp_px_cat_g1v2;
 COPY bronze.erp_px_cat_g1v2
-FROM 'C:\Program Files\PostgreSQL\17\datasets\source_erp\PX_CAT_G1V2.csv'
-DELIMITER ','   
+FROM 'C:/Program Files/PostgreSQL/17/datasets/source_erp/PX_CAT_G1V2.csv'
+DELIMITER ','
 CSV HEADER;
+
+-- ============================
+-- END OF SCRIPT
+-- ============================
 
 
 
